@@ -1,7 +1,7 @@
 # Личный проект «Седона»
 
 * Студент: [Анастасия](https://up.htmlacademy.ru/htmlcss/28/user/1385139).
-* Наставник: `Неизвестно`.
+* Наставник: [Вадим Новаш](https://htmlacademy.ru/profile/stakeout).
 
 ---
 
