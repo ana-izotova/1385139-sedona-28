@@ -4,131 +4,132 @@
   <meta charset="UTF-8">
   <title>Поиск отелей в Седоне</title>
 </head>
-<body>
-<header>
-  <nav>
-    <a class="main-header-logo" href="index.html">
-      <img src="img/logo.png" alt="Логотип сайта" width="138" height="70">
-    </a>
-    <ul class="site-navigation">
-      <li><a href="blanc.html">Информация</a></li>
-      <li><a href="blanc.html">Фото и видео</a></li>
-      <li><a href="blanc.html">Карта штата</a></li>
-      <li><a href="hotels.html">Гостиницы</a></li>
+<body class="page">
+  <header class="page-header">
+    <nav>
+      <a class="logo" href="index.html">
+        <img src="img/logo-sedona.svg" alt="Логотип сайта" width="138" height="70">
+      </a>
+      <ul class="site-navigation">
+        <li><a href="#">Информация</a></li>
+        <li><a href="#">Фото и видео</a></li>
+        <li><a href="#">Карта штата</a></li>
+        <li><a href="#">Гостиницы</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main class="page-content">
+    <h1 class="page-content-title">Выбрать подходящий отель в Седоне</h1>
+    <section class="hotels-search">
+      <div>
+        <h3>Инфраструктура:</h3>
+        <ul>
+          <li>Бассейн</li>
+          <li>Парковка</li>
+          <li>Wi-fi</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Тип жилья:</h3>
+        <ul>
+          <li>Гостиница</li>
+          <li>Мотель</li>
+          <li>Апартаменты</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Стоимость в сутки (Р):</h3>
+      </div>
+    </section>
+    <section class="found-hotels">
+      <h2>Список отелей</h2>
+      <section class="sort-hotels">
+        <section class="found-hotels">
+          <h3 class="found-title">Найдено:</h3>
+          <span class="found-hotels-quantity">3</span>
+        </section>
+        <section class="param-sorting">
+          <h4 class="param-sorting-title">Сортировка:</h4>
+          <ul class="param-sorting-list">
+            <li class="param">По цене</li>
+            <li class="param">По типу</li>
+            <li class="param">По рейтингу</li>
+          </ul>
+        </section>
+        <ul class="asc-des-sorting-list">
+          <li class="asc-sort"><!--По возрастанию--></li>
+          <li class="des-sort"><!--По убыванию--></li>
+        </ul>
+      </section>
+      <ul class="hotels-list">
+        <li class="hotel-item">
+          <img src="img/hotel-amara.jpg" alt="Отель Amara resort & Spa" width="135" height="90">
+          <section class="hotel-info">
+            <h3 class="hotel-name">Amara resort & Spa</h3>
+            <div class="left-column">
+              <span class="hotel-type">Гостиница</span>
+              <div class="button-more">Подробнее</div>
+            </div>
+            <div class="right-column">
+              <span class="price">от 4000 руб.</span>
+              <div class="book">Забронировать</div>
+            </div>
+          </section>
+          <section class="hotel-rating">
+            <div class="star-rating"></div>
+            <div class="numeric-rating">Рейтинг: 8,5</div>
+          </section>
+        </li>
+        <li class="hotel-item">
+          <div>
+            <img src="img/hotel-desert.jpg" alt="Мотель Desert Quail Inn" width="135" height="90">
+            <h3 class="hotel-name">Desert Quail Inn</h3>
+            <span class="hotel-type">Мотель</span>
+            <span class="price">от 3000 руб.</span>
+            <div class="button-more">Подробнее</div>
+            <div class="book">Забронировать</div>
+          </div>
+          <div class="hotel-rating">
+            <div class="star-rating"></div>
+            <div class="numeric-rating">Рейтинг: 8,9</div>
+          </div>
+        </li>
+        <li class="hotel-item">
+          <div>
+            <img src="img/hotel-villas.jpg" alt="Апартаменты Villas At Poco Diablo" width="135" height="90">
+            <h3 class="hotel-name">Villas At Poco Diablo</h3>
+            <span class="hotel-type">Апартаменты</span>
+            <span class="price">от 2000 руб.</span>
+            <div class="button-more">Подробнее</div>
+            <div class="book">Забронировать</div>
+          </div>
+          <div class="hotel-rating">
+            <div class="star-rating"></div>
+            <div class="numeric-rating">Рейтинг: 9,2</div>
+          </div>
+        </li>
+      </ul>
+    </section>
+  </main>
+  <footer class="page-footer">
+    <p class="contacts">
+      #VisitSedona
+      ТЕЛ: +7(495) 666-02-66
+    </p>
+    <ul class="social-list">
+      <li class="social-item">
+        <a href="#" target="_blank">Twitter</a>
+      </li>
+      <li class="social-item">
+        <a href="#" target="_blank">Facebook</a>
+      </li>
+      <li class="social-item">
+        <a href="#" target="_blank">YouTube</a>
+      </li>
     </ul>
-  </nav>
-</header>
-
-<main>
-  <h1>Выбрать подходящий отель в Седоне</h1>
-
-  <section class="search-form">
-    <div>
-      <h3>Инфраструктура:</h3>
-      <ul>
-        <li>Бассейн</li>
-        <li>Парковка</li>
-        <li>Wi-fi</li>
-      </ul>
-    </div>
-
-    <div>
-      <h3>Тип жилья:</h3>
-      <ul>
-        <li>Гостиница</li>
-        <li>Мотель</li>
-        <li>Апартаменты</li>
-      </ul>
-    </div>
-
-    <div>
-      <h3>Стоимость в сутки (Р):</h3>
-    </div>
-
-    <!--"Найдено: 3"-->
-
-    <div class="sort">
-      <h3>Сортировка:</h3>
-      <ul>
-        <li>По цене</li>
-        <li>По типу</li>
-        <li>По рейтингу</li>
-      </ul>
-    </div>
-
-  </section>
-
-
-  <section> <!--Выделяю в отдельный блок по смыслу, чтобы добавить скрытый заголовок, нужно или излишне?-->
-    <h2>Список отелей</h2>
-    <ul class="hotels-list">
-      <li class="hotel-info">
-        <div>
-          <img src="img/hotel-amara.png" alt="Отель Amara resort & Spa" width="135" height="90">
-          <!--Лучше вынести фото отеля отдельно? Но потом здесь будет применяться justify-content: space-between
-          и фото с инфо о отеле должны быть в одном блоке?-->
-          <h3 class="hotel-name">Amara resort & Spa</h3>
-          <span class="hotel-type">Гостиница</span>
-          <span class="price">от 4000 руб.</span>
-          <div class="button-more">Подробнее</div>
-          <div class="book">Забронировать</div>
-        </div>
-        <div class="hotel-rating">
-          <div class="star-rating"></div>
-          <div class="numeric-rating">Рейтинг: 8,5</div>
-        </div>
-      </li>
-      <li class="hotel-info">
-        <div>
-          <img src="img/hotel-desert.png" alt="Мотель Desert Quail Inn" width="135" height="90">
-          <h3 class="hotel-name">Desert Quail Inn</h3>
-          <span class="hotel-type">Мотель</span>
-          <span class="price">от 3000 руб.</span>
-          <div class="button-more">Подробнее</div>
-          <div class="book">Забронировать</div>
-        </div>
-        <div class="hotel-rating">
-          <div class="star-rating"></div>
-          <div class="numeric-rating">Рейтинг: 8,9</div>
-        </div>
-      </li>
-      <li class="hotel-info">
-        <div>
-          <img src="img/hotel-villas.png" alt="Апартаменты Villas At Poco Diablo" width="135" height="90">
-          <h3 class="hotel-name">Villas At Poco Diablo</h3>
-          <span class="hotel-type">Апартаменты</span>
-          <span class="price">от 2000 руб.</span>
-          <div class="button-more">Подробнее</div>
-          <div class="book">Забронировать</div>
-        </div>
-        <div class="hotel-rating">
-          <div class="star-rating"></div>
-          <div class="numeric-rating">Рейтинг: 9,2</div>
-        </div>
-      </li>
-    </ul>
-  </section>
-</main>
-
-<footer>
-  <p>
-    #VisitSedona <br>
-    ТЕЛ: +7(495) 666-02-66
-  </p>
-  <ul>
-    <li>
-      <a href="#">Twitter</a>
-    </li>
-    <li>
-      <a href="#">Facebook</a>
-    </li>
-    <li>
-      <a href="#">YouTube</a>
-    </li>
-  </ul>
-  <p>
-    Website by <a href="https://htmlacademy.ru"><img src="img/htmlAcademy_logo.png" alt="Логотип htmlAcademy" width="115" height="41"></a>
-  </p>
-</footer>
+    <p class="copyright">
+      Website by <a href="https://htmlacademy.ru" target="_blank"><img src="img/logo-htmlacademy.svg" alt="Логотип htmlAcademy" width="115" height="41"></a>
+    </p>
+  </footer>
 </body>
 </html>
