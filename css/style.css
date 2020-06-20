@@ -35,9 +35,9 @@
   text-transform: uppercase;
   background-color: var(--lightest-gray);
   min-height: 100%;
-  display: grid;
-  grid-template-rows: min-content 1fr min-content;
-  align-content: start;
+  /*display: grid;*/
+  /*grid-template-rows: min-content 1fr min-content;*/
+  /*align-content: start;*/
 }
 
 a {
@@ -296,7 +296,6 @@ p.reasons-text-content {
   justify-content: center;
   align-items: center;
   text-align: center;
-  position: relative;
 }
 
 .hotels-search button {
@@ -318,6 +317,10 @@ p.reasons-text-content {
   margin: 0;
 }
 
+.search-wrap {
+  position: relative;
+}
+
 button.hotels-search {
   width: 568px;
   height: 86px;
@@ -329,6 +332,8 @@ button.hotels-search {
   font-weight: bold;
   border: none;
   font-family: inherit;
+  z-index: 3;
+  position: relative;
 }
 
 button.hotels-search:hover {
@@ -371,7 +376,37 @@ button.search:focus {
   padding: 55px;
   background: var(--white);
   position: absolute;
-  top: 291px;
+  top: 86px;
+  display: none;
+  z-index: 2;
+}
+
+.is-open {
+  display: block;
+}
+
+.animation-open {
+  animation-name: bounce-down;
+  animation-duration: 0.6s;
+}
+
+@keyframes bounce-down {
+  0%    { transform: translateY(-86px); }
+  70%   { transform: translateY(30px);  }
+  90%   { transform: translateY(-10px); }
+  100%  { transform: translateY(0);     }
+}
+
+.modal-error {
+  animation-name: shake;
+  animation-duration: 0.6s;
+}
+
+@keyframes shake {
+  0%, 100%                { transform: translateX(0);     }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
+  20%, 40%, 60%, 80%      { transform: translateX(10px);  }
+
 }
 
 .hotels-search-form label {
@@ -404,14 +439,25 @@ button.search:focus {
 .date-input {
   width: 346px;
   text-transform: uppercase;
+  outline: none;
+  border: 2px solid transparent;
+  box-sizing: border-box;
 }
 
-.date-input:hover {
+.date-input:hover,
+.visitors-input:hover {
   background: var(--input-background-gray);
 }
 
-.date-input:focus {
+.date-input:focus,
+.visitors-input:focus {
   background: var(--white);
+  border: 2px solid var(--hotels-border-gray);
+  box-sizing: border-box;
+}
+
+.hotels-search-form button {
+  cursor: pointer;
 }
 
 .calendar {
@@ -423,6 +469,7 @@ button.search:focus {
   top: 7px;
   right: 8px;
   padding: 0;
+  outline: none;
 }
 
 button .calendar:last-child {
@@ -435,7 +482,7 @@ button .calendar:last-child {
 }
 
 .calendar:active > svg {
-  fill: var(--light-blue)
+  fill: var(--light-blue);
 }
 
 .visitors-counter {
@@ -467,6 +514,7 @@ button .calendar:last-child {
 .visitors input {
   padding-left: 0;
   padding-right: 0;
+  outline: none;
 }
 
 .operator {
@@ -535,8 +583,23 @@ button .calendar:last-child {
 .map {
   border: none;
   display: block;
-  margin-bottom: -127px;
+  margin-bottom: -126px;
+  position: relative;
+
 }
+
+/*.map iframe {*/
+/*  z-index: 2;*/
+/*  position: absolute;*/
+/*  top: 0;*/
+/*  left: 0;*/
+/*}*/
+
+/*.map img {*/
+/*  position: absolute;*/
+/*  top: 0;*/
+/*  left: 0;*/
+/*}*/
 
 /*Footer*/
 
@@ -557,7 +620,7 @@ button .calendar:last-child {
   font-size: 21px;
   line-height: 26px;
   text-align: center;
-
+  padding-bottom: 10px;
 }
 
 .contacts a {
@@ -768,6 +831,7 @@ button .calendar:last-child {
 .right-col-filters p {
   margin: 0;
   text-align: center;
+  padding-right: 10px;
 }
 
 button.show {
@@ -843,7 +907,7 @@ button.show:focus {
   background: transparent;
   border: none;
   color: var(--white);
-  width: 60px;
+  width: 57px;
 }
 
 .range-filter {
@@ -862,7 +926,7 @@ button.show:focus {
 }
 
 .range-controls .bar {
-  width: 248px;
+  width: 252px;
   height: 2px;
   background: var(--white);
 }
@@ -885,7 +949,7 @@ button.show:focus {
 }
 
 .range-controls .toggle-max {
-  left: 248px;
+  left: 252px;
 }
 
 /*Sort hotels*/
@@ -1015,7 +1079,7 @@ button.param:focus {
   list-style: none;
   display: flex;
   border-bottom: 1px solid var(--hotels-border-gray);
-  padding: 24px 73px;
+  padding: 24px 73px 30px;
   align-items: flex-end;
   justify-content: flex-start;
 }
@@ -1036,7 +1100,7 @@ button.param:focus {
 }
 
 .hotel-info h3 {
-  margin: 0 0 7px 0;
+  margin: 0;
   font-weight: bold;
   font-size: 21px;
   line-height: 26px;
@@ -1044,6 +1108,7 @@ button.param:focus {
 
 .hotel-name {
   color: var(--black);
+  margin-bottom: 7px;
 }
 
 .hotel-name:hover,
@@ -1122,19 +1187,19 @@ button.param:focus {
   background-image: url("../img/star.svg");
   background-position: center center;
   background-repeat: space repeat;
-  margin-bottom: 50px;
+  margin-bottom: 48px;
 }
 
 .four-stars {
-  width: 76px
+  width: 89px
 }
 
 .three-stars {
-  width: 57px;
+  width: 65px;
 }
 
 .two-stars {
-  width: 38px;
+  width: 40px;
 }
 
 .numeric-rating {
