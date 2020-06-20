@@ -588,18 +588,12 @@ button .calendar:last-child {
 
 }
 
-/*.map iframe {*/
-/*  z-index: 2;*/
-/*  position: absolute;*/
-/*  top: 0;*/
-/*  left: 0;*/
-/*}*/
-
-/*.map img {*/
-/*  position: absolute;*/
-/*  top: 0;*/
-/*  left: 0;*/
-/*}*/
+.map iframe {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
 
 /*Footer*/
 
@@ -613,6 +607,7 @@ button .calendar:last-child {
   position: relative;
   padding-right: 50px;
   padding-left: 50px;
+  z-index: 2;
 }
 
 .contacts {
