@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 2 version,not dead,not ie <= 11
+*/
+
 /* Variables */
 
 :root {
@@ -28,16 +35,13 @@
 .page-body {
   min-width: 1240px;
   margin: 0;
-  font-family: 'PT Sans', sans-serif, 'Arial', sans-serif;
+  font-family: 'PT Sans', 'Arial', sans-serif;
   font-size: 14px;
   line-height: 21px;
   color: var(--middle-dark);
   text-transform: uppercase;
   background-color: var(--lightest-gray);
   min-height: 100%;
-  /*display: grid;*/
-  /*grid-template-rows: min-content 1fr min-content;*/
-  /*align-content: start;*/
 }
 
 a {
@@ -59,6 +63,7 @@ input[type="radio"].visually-hidden {
   border: 0;
   padding: 0;
   white-space: nowrap;
+  -webkit-clip-path: inset(100%);
   clip-path: inset(100%);
   clip: rect(0 0 0 0);
   overflow: hidden;
@@ -72,7 +77,6 @@ input[type="radio"].visually-hidden {
   margin-right: auto;
 }
 
-
 /* Main navigation */
 
 .site-navigation {
@@ -83,10 +87,6 @@ input[type="radio"].visually-hidden {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   padding: 15px 72px;
-}
-
-li.align-left {
-  text-align: left;
 }
 
 li.align-right {
@@ -334,15 +334,16 @@ button.hotels-search {
   font-family: inherit;
   z-index: 3;
   position: relative;
+  cursor: pointer;
 }
 
-button.hotels-search:hover {
+button.hotels-search:hover,
+button.hotels-search:focus {
   background: var(--brown);
 }
 
-button.hotels-search:focus {
+button.hotels-search:active {
   background: var(--dark-brown);
-  mix-blend-mode: normal;
   color: rgba(255, 255, 255, 0.3);
 }
 
@@ -359,11 +360,12 @@ button.search {
   border: none;
 }
 
-button.search:hover {
+button.search:hover,
+button.search:focus {
   background: var(--blue);
 }
 
-button.search:focus {
+button.search:active {
   background: var(--dark-blue);
   mix-blend-mode: normal;
   color: rgba(255, 255, 255, 0.3);
@@ -386,27 +388,17 @@ button.search:focus {
 }
 
 .animation-open {
+  -webkit-animation-name: bounce-down;
   animation-name: bounce-down;
+  -webkit-animation-duration: 0.6s;
   animation-duration: 0.6s;
-}
-
-@keyframes bounce-down {
-  0%    { transform: translateY(-86px); }
-  70%   { transform: translateY(30px);  }
-  90%   { transform: translateY(-10px); }
-  100%  { transform: translateY(0);     }
 }
 
 .modal-error {
+  -webkit-animation-name: shake;
   animation-name: shake;
+  -webkit-animation-duration: 0.6s;
   animation-duration: 0.6s;
-}
-
-@keyframes shake {
-  0%, 100%                { transform: translateX(0);     }
-  10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
-  20%, 40%, 60%, 80%      { transform: translateX(10px);  }
-
 }
 
 .hotels-search-form label {
@@ -424,7 +416,6 @@ button.search:focus {
   line-height: 26px;
   font-weight: bold;
   color: var(--black);
-  border: none;
   padding: 6px 13px;
 }
 
@@ -509,6 +500,7 @@ button .calendar:last-child {
 .visitors-input {
   width: 38px;
   text-align: center;
+  border: none;
 }
 
 .visitors input {
@@ -567,13 +559,13 @@ button .calendar:last-child {
 
 .minus:hover::after,
 .plus:hover::before,
-.plus:hover::after {
+.plus:hover::after,
+.minus:focus::after,
+.plus:focus::before,
+.plus:focus::after {
   background: var(--black);
 }
 
-.minus:focus:after,
-.plus:focus:before,
-.plus:focus::after,
 .minus:active:after,
 .plus:active:before,
 .plus:active::after {
@@ -622,11 +614,12 @@ button .calendar:last-child {
   color: var(--black);
 }
 
-.contacts a:hover {
+.contacts a:hover,
+.contacts a:focus {
   color: var(--light-blue);
 }
 
-.contacts a:focus {
+.contacts a:active {
   color: var(--black);
   mix-blend-mode: normal;
   opacity: 0.3;
@@ -643,7 +636,7 @@ button .calendar:last-child {
   padding: 0;
 }
 
-.socials-item a{
+.socials-item a {
   width: 46px;
   height: 48px;
   display: flex;
@@ -683,11 +676,11 @@ button .calendar:last-child {
   background-position: center;
 }
 
-.socials-item a:hover {
+.socials-item a:hover,
+.socials-item a:focus {
   background: var(--blue);
 }
 
-.socials-item a:focus,
 .socials-item a:active {
   background: var(--dark-blue);
 }
@@ -726,8 +719,9 @@ button .calendar:last-child {
 /*Hotels filter*/
 
 .filer {
+  background-color: var(--dark-blue);
   background-image: url("../img/background-blur.png");
-  background-position: 0 0;
+  background-position: center top;
   background-repeat: no-repeat;
   color: var(--white);
   padding: 26px 73px 32px 73px;
@@ -765,6 +759,8 @@ button .calendar:last-child {
   position: relative;
   display: block;
   cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
   user-select: none;
   padding-left: 39px;
 }
@@ -800,17 +796,8 @@ button .calendar:last-child {
   box-shadow: 0 0 1px 3px var(--google-focus-blue);
 }
 
-/*.hotels-filter-form input[type=checkbox]:disabled + label:before{*/
-/*  opacity: 0.3;*/
-/*  cursor: auto;*/
-/*}*/
-.filter-input-checkbox:disabled + label::after,
-.filter-input-checkbox:disabled + label::before {
-  opacity: 0.3;
-  cursor: auto;
-}
-
 .filter-input-checkbox:disabled + label {
+  opacity: 0.3;
   cursor: auto;
 }
 
@@ -881,7 +868,7 @@ button.show:focus {
   align-items: center;
 }
 
-.max-price:before {
+.max-price::before {
   content: "";
   width: 2px;
   height: 22px;
@@ -978,7 +965,8 @@ button.show:focus {
   line-height: 18px;
 }
 
-.param-sorting-list, .ranking-list {
+.param-sorting-list,
+.ranking-list {
   list-style: none;
   display: flex;
   margin: 0;
@@ -1008,12 +996,13 @@ button.param {
   margin-right: 32px;
 }
 
-button.param:hover {
+button.param:hover,
+button.param:focus {
   opacity: 1;
   color: var(--light-blue);
 }
 
-button.param:focus {
+button.param:active {
   color: var(--black);
   border-bottom: 1px dashed transparent;
 }
@@ -1024,7 +1013,6 @@ button.param:focus {
   border-bottom: 1px dashed transparent;
   cursor: auto;
 }
-
 
 .ranking {
   border: none;
@@ -1056,10 +1044,6 @@ button.param:focus {
 .ranking.active > svg {
   fill: var(--light-blue);
   cursor: auto;
-}
-
-.param.active {
-
 }
 
 /*Hotels search results*/
@@ -1116,9 +1100,14 @@ button.param:focus {
   opacity: 0.3;
 }
 
-.left-column, .right-column {
+.left-column,
+.right-column {
   display: flex;
   flex-direction: column;
+}
+
+.left-column {
+  margin-right: 6px;
 }
 
 .more-info {
@@ -1129,11 +1118,11 @@ button.param:focus {
   text-align: center;
   font-weight: bold;
   line-height: 27px;
-  margin-right: 6px;
   margin-top: 15.5px;
 }
 
-.more-info:hover {
+.more-info:hover,
+.more-info:focus {
   background: var(--blue);
 }
 
@@ -1159,7 +1148,8 @@ button.param:focus {
   padding: 3px 17px;
 }
 
-.book:hover {
+.book:hover,
+.book:focus {
   background: var(--brown);
 }
 
@@ -1202,4 +1192,32 @@ button.param:focus {
   color: var(--dark);
   text-align: center;
   padding: 3px 12px 3px 15px;
+}
+
+/*Animation*/
+
+@-webkit-keyframes bounce-down {
+  0%    { transform: translateY(-86px); }
+  70%   { transform: translateY(30px);  }
+  90%   { transform: translateY(-10px); }
+  100%  { transform: translateY(0);     }
+}
+
+@keyframes bounce-down {
+  0%    { transform: translateY(-86px); }
+  70%   { transform: translateY(30px);  }
+  90%   { transform: translateY(-10px); }
+  100%  { transform: translateY(0);     }
+}
+
+@-webkit-keyframes shake {
+  0%, 100%                { transform: translateX(0);     }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
+  20%, 40%, 60%, 80%      { transform: translateX(10px);  }
+}
+
+@keyframes shake {
+  0%, 100%                { transform: translateX(0);     }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
+  20%, 40%, 60%, 80%      { transform: translateX(10px);  }
 }

@@ -1,14 +1,16 @@
-const searchButton = document.querySelector('.hotels-search');
-const searchForm = document.querySelector('.hotels-search-form');
+var searchButton = document.querySelector('.hotels-search');
+var searchForm = document.querySelector('.hotels-search-form');
 
-const startDate = searchForm.querySelector('[name=start-date]');
-const endDate = searchForm.querySelector('[name=end-date');
-const adults = searchForm.querySelector('[name=adults');
-const children = searchForm.querySelector('[name=children]');
+searchForm.classList.remove('is-open');
 
-let isStorageSupport = true;
-let adultsStorage = '';
-let childrenStorage = '';
+var startDate = searchForm.querySelector('[name=start-date]');
+var endDate = searchForm.querySelector('[name=end-date');
+var adults = searchForm.querySelector('[name=adults');
+var children = searchForm.querySelector('[name=children]');
+
+var isStorageSupport = true;
+var adultsStorage = '';
+var childrenStorage = '';
 
 try {
   adultsStorage = localStorage.getItem('adults');
@@ -25,6 +27,7 @@ if (childrenStorage) {
   children.value = childrenStorage;
 }
 
+//open/close search form
 searchButton.addEventListener('click', function (event) {
   event.preventDefault();
   searchForm.classList.toggle('is-open');
@@ -32,7 +35,7 @@ searchButton.addEventListener('click', function (event) {
   if (searchForm.classList.contains('is-open')) {
     searchForm.classList.add('animation-open');
   }
-})
+});
 
 //close form with esc
 window.addEventListener('keydown', function (event) {
@@ -42,7 +45,7 @@ window.addEventListener('keydown', function (event) {
       searchForm.classList.remove('is-open');
     }
   }
-})
+});
 
 //submit error
 searchForm.addEventListener('submit', function (event) {
@@ -58,5 +61,5 @@ searchForm.addEventListener('submit', function (event) {
     }
   }
   console.log(startDate.value, endDate.value, adults.value, children.value);
-})
+});
 
