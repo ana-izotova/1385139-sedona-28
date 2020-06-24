@@ -19,6 +19,7 @@
   --dark-gray: #A9A9A9;
   --hotels-border-gray: #E5E5E5;
   --input-background-gray: #EBEBEB;
+  --toggle-gray: #ABABAB;
 
   --light-blue: #81B3D2;
   --blue: #669EC0;
@@ -35,7 +36,7 @@
 .page-body {
   min-width: 1240px;
   margin: 0;
-  font-family: 'PT Sans', 'Arial', sans-serif;
+  font-family: "PT Sans", "Arial", sans-serif;
   font-size: 14px;
   line-height: 21px;
   color: var(--middle-dark);
@@ -127,22 +128,21 @@ a.current {
 /*Promo*/
 
 .promo-images {
+  width: 1200px;
+  height: 509px;
+  background-image: url("../img/background-photo.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  overflow: hidden;
   position: relative;
 }
 
 .promo-images img {
   display: block;
-}
-
-.promo-images::before {
-  content: "";
-  width: 458px;
-  height: 352px;
-  background-image: url("../img/intro-welcome.svg");
   position: absolute;
   top: 77px;
   left: 371px;
-}
+ }
 
 .promo-images::after {
   content: "";
@@ -723,6 +723,7 @@ button .calendar:last-child {
   background-image: url("../img/background-blur.png");
   background-position: center top;
   background-repeat: no-repeat;
+  background-size: cover;
   color: var(--white);
   padding: 26px 73px 32px 73px;
 }
@@ -736,7 +737,6 @@ button .calendar:last-child {
 .left-col-filters fieldset:nth-child(1) {
   margin-right: 119px;
 }
-
 
 .left-col-filters legend {
   padding: 0;
@@ -804,22 +804,22 @@ button .calendar:last-child {
 .hotels-filter-form {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .left-col-filters {
   display: flex;
 }
 
-.right-col-filters p {
-  margin: 0;
-  text-align: center;
-  padding-right: 10px;
+.right-col-filters {
+  display: flex;
+  flex-direction: column;
 }
 
 button.show {
   width: 137px;
   height: 36px;
-  border: 2px solid #FFFFFF;
+  border: 2px solid var(--white);
   box-sizing: border-box;
   border-radius: 2px;
   background: transparent;
@@ -829,6 +829,9 @@ button.show {
   text-transform: uppercase;
   cursor: pointer;
   margin-top: 34px;
+  text-align: center;
+  align-self: center;
+  margin-right: 10px;
   font-family: inherit;
 }
 
@@ -918,8 +921,8 @@ button.show:focus {
   width: 20px;
   height: 20px;
   padding: 0;
-  border: 7.64px solid #ffffff;
-  background-color: #ababab;
+  border: 8px solid var(--white);
+  background-color: var(--toggle-gray);
   border-radius: 50%;
   position: absolute;
   top: -9px;
@@ -934,6 +937,14 @@ button.show:focus {
   left: 252px;
 }
 
+.toggle:hover,
+.toggle:focus {
+  width: 23px;
+  height: 23px;
+  top: -11px;
+  border: 9px solid var(--white);
+}
+
 /*Sort hotels*/
 
 .sorting-form {
@@ -942,7 +953,7 @@ button.show:focus {
 
 .sort-hotels {
   border-bottom: 1px solid var(--hotels-border-gray);
-  padding: 29px 70px 30px 73px;
+  padding: 29px 73px 30px 73px;
   display: flex;
 }
 
@@ -977,7 +988,7 @@ button.show:focus {
   margin-right: auto;
 }
 
-button.param {
+.param {
   border: none;
   font-size: 12px;
   line-height: 18px;
@@ -996,13 +1007,13 @@ button.param {
   margin-right: 32px;
 }
 
-button.param:hover,
-button.param:focus {
+.param:not(.active):hover,
+.param:not(.active):focus {
   opacity: 1;
   color: var(--light-blue);
 }
 
-button.param:active {
+.param:not(.active):active {
   color: var(--black);
   border-bottom: 1px dashed transparent;
 }
@@ -1011,13 +1022,13 @@ button.param:active {
   opacity: 1;
   color: var(--light-blue);
   border-bottom: 1px dashed transparent;
-  cursor: auto;
 }
 
 .ranking {
+  display: block;
   border: none;
-  width: 20px;
-  height: 20px;
+  width: 12px;
+  height: 12px;
   fill: var(--middle-gray);
   padding: 0;
   cursor: pointer;
@@ -1025,25 +1036,28 @@ button.param:active {
 }
 
 .ranking-list li:first-child {
-  margin-right: 0;
+  margin-right: 11px;
 }
 
 .ranking-list {
   padding-top: 5px;
 }
 
-.ranking:hover > svg,
-.ranking:focus > svg{
+.active {
+  cursor: auto;
+}
+
+.ranking:not(.active):hover > svg,
+.ranking:not(.active):focus > svg{
   fill: var(--black);
 }
 
-.ranking:active > svg {
+.ranking:not(.active):active > svg {
   fill: var(--light-blue);
 }
 
 .ranking.active > svg {
   fill: var(--light-blue);
-  cursor: auto;
 }
 
 /*Hotels search results*/
