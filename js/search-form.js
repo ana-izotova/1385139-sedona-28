@@ -4,8 +4,8 @@ var searchForm = document.querySelector('.hotels-search-form');
 searchForm.classList.remove('is-open');
 
 var startDate = searchForm.querySelector('[name=start-date]');
-var endDate = searchForm.querySelector('[name=end-date');
-var adults = searchForm.querySelector('[name=adults');
+var endDate = searchForm.querySelector('[name=end-date]');
+var adults = searchForm.querySelector('[name=adults]');
 var children = searchForm.querySelector('[name=children]');
 
 var isStorageSupport = true;
