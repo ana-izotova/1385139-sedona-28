@@ -94,6 +94,16 @@ li.align-right {
   text-align: right;
 }
 
+a.inner-left {
+  position: relative;
+  left: -35px;
+}
+
+a.inner-right {
+  position: relative;
+  right: -35px;
+}
+
 .site-navigation a {
   color: var(--black);
 }
@@ -133,7 +143,6 @@ a.current {
   background-image: url("../img/background-photo.jpg");
   background-position: center center;
   background-repeat: no-repeat;
-  overflow: hidden;
   position: relative;
 }
 
